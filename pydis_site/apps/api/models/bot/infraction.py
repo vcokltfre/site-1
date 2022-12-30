@@ -69,6 +69,14 @@ class Infraction(ModelReprMixin, models.Model):
         help_text="Whether a DM was sent to the user when infraction was applied."
     )
 
+    jump_url_text = models.CharField(
+        default='',
+        max_length=102,
+        help_text=(
+            "The formatted jump url to message invoking the infraction."
+        )
+    )
+
     def __str__(self):
         """Returns some info on the current infraction, for display purposes."""
         s = f"#{self.id}: {self.type} on {self.user_id}"
